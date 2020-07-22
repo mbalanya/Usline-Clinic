@@ -3,8 +3,9 @@ package models;
 public class Doctor extends Users {
     private static final String DATABASE_TYPE= "doctor";
     private int id;
+    private int docid;
     public Doctor( int userid,String email,String password,String firstName,String lastName,String gender,String phone){
-    this.userid=userid;
+    this.docid=userid;
     this.email=email;
     this.password=password;
     this.firstName =firstName;
@@ -13,8 +14,8 @@ public class Doctor extends Users {
     this.phone=phone;
     role=DATABASE_TYPE;
     }
-    public int getUserid(){return userid;}
-    public void setUserid(int userid){ this.userid=userid; }
+    public int getDocid(){return docid;}
+    public void setDocid(int docid){ this.docid=docid; }
 
     public String getEmail(){return email;}
     public void setEmail(String email){ this.email=email; }

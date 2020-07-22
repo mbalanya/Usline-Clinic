@@ -1,7 +1,6 @@
 package models;
 
 public abstract class Users {
-    public int userid;
     public String email;
     public String password;
     public String firstName;
