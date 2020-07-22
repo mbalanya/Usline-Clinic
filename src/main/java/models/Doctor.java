@@ -4,8 +4,8 @@ public class Doctor extends Users {
     private static final String DATABASE_TYPE= "doctor";
     private int id;
     private int docid;
-    public Doctor( int userid,String email,String password,String firstName,String lastName,String gender,String phone){
-    this.docid=userid;
+    public Doctor( int docid,String email,String password,String firstName,String lastName,String gender,String phone){
+    this.docid=docid;
     this.email=email;
     this.password=password;
     this.firstName =firstName;

@@ -4,7 +4,7 @@ public class Patient extends Users {
     private static final String DATABASE_TYPE= "patient";
     private int id;
     private int patid;
-    public Patient( String email,String password,String firstName,String lastName,String gender,String phone){
+    public Patient( int patid,String email,String password,String firstName,String lastName,String gender,String phone){
         this.patid=patid;
         this.email=email;
         this.password=password;
