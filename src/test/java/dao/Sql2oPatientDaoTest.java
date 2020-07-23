@@ -30,60 +30,60 @@ public class Sql2oPatientDaoTest {
 
     //helpers
 
-    public Patient setupPatient (){
-        Patient patient = new Patient(1, "Tracks money", 5);
-        departmentDao.add(departments);
-        return departments;
-    }
-
-    @Test
-    public void addingUsersSetsId() throws Exception {
-        Departments testDepartments = setupDepartments();
-        assertNotEquals(0, testDepartments.getId());
-    }
-
-    @Test
-    public void addedDepartmentsAreReturnedFromGetAll() throws Exception {
-        Departments testDepartment = setupDepartments();
-        assertEquals(1, departmentDao.getAll().size());
-    }
-
-    @Test
-    public void noDepartmentsReturnsEmptyList() throws Exception {
-        assertEquals(0, departmentDao.getAll().size());
-    }
-
-    @Test
-    public void findByIdReturnsCorrectDepartment() throws Exception {
-        Departments testDepartment = setupDepartments();
-        Departments otherDepartment = setupDepartments();
-        assertEquals(testDepartment, departmentDao.findById(testDepartment.getId()));
-    }
-
-    @Test
-    public void updateCorrectlyUpdatesAllFields() throws Exception {
-        Departments testDepartment = setupDepartments();
-        departmentDao.update(testDepartment.getId(), "Networking", "Bring internet", 12);
-        Departments foundDepartment = departmentDao.findById(testDepartment.getId());
-        assertEquals("Networking", foundDepartment.getName());
-        assertEquals("Bring internet", foundDepartment.getDescription());
-        assertEquals(12, foundDepartment.getNumberOfEmployees());
-    }
-
-    @Test
-    public void deleteByIdDeletesCorrectDepartment() throws Exception {
-        Departments testDepartment = setupDepartments();
-        Departments otherDepartment = setupDepartments();
-        departmentDao.deleteById(testDepartment.getId());
-        assertEquals(1, departmentDao.getAll().size());
-    }
-
-    @Test
-    public void clearAll() throws Exception {
-        Departments testDepartment = setupDepartments();
-        Departments otherDepartment = setupDepartments();
-        departmentDao.clearAll();
-        assertEquals(0, departmentDao.getAll().size());
-    }
+//    public Patient setupPatient (){
+//        Patient patient = new Patient(1, "Tracks money", 5);
+//        departmentDao.add(departments);
+//        return departments;
+//    }
+//
+//    @Test
+//    public void addingUsersSetsId() throws Exception {
+//        Departments testDepartments = setupDepartments();
+//        assertNotEquals(0, testDepartments.getId());
+//    }
+//
+//    @Test
+//    public void addedDepartmentsAreReturnedFromGetAll() throws Exception {
+//        Departments testDepartment = setupDepartments();
+//        assertEquals(1, departmentDao.getAll().size());
+//    }
+//
+//    @Test
+//    public void noDepartmentsReturnsEmptyList() throws Exception {
+//        assertEquals(0, departmentDao.getAll().size());
+//    }
+//
+//    @Test
+//    public void findByIdReturnsCorrectDepartment() throws Exception {
+//        Departments testDepartment = setupDepartments();
+//        Departments otherDepartment = setupDepartments();
+//        assertEquals(testDepartment, departmentDao.findById(testDepartment.getId()));
+//    }
+//
+//    @Test
+//    public void updateCorrectlyUpdatesAllFields() throws Exception {
+//        Departments testDepartment = setupDepartments();
+//        departmentDao.update(testDepartment.getId(), "Networking", "Bring internet", 12);
+//        Departments foundDepartment = departmentDao.findById(testDepartment.getId());
+//        assertEquals("Networking", foundDepartment.getName());
+//        assertEquals("Bring internet", foundDepartment.getDescription());
+//        assertEquals(12, foundDepartment.getNumberOfEmployees());
+//    }
+//
+//    @Test
+//    public void deleteByIdDeletesCorrectDepartment() throws Exception {
+//        Departments testDepartment = setupDepartments();
+//        Departments otherDepartment = setupDepartments();
+//        departmentDao.deleteById(testDepartment.getId());
+//        assertEquals(1, departmentDao.getAll().size());
+//    }
+//
+//    @Test
+//    public void clearAll() throws Exception {
+//        Departments testDepartment = setupDepartments();
+//        Departments otherDepartment = setupDepartments();
+//        departmentDao.clearAll();
+//        assertEquals(0, departmentDao.getAll().size());
+//    }
 
 }
