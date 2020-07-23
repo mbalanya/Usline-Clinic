@@ -7,7 +7,7 @@ import java.util.List;
 public interface LoginDao {
 
     //CREATE
-    void logIn(Login login);
+    void logIn();
 
     //READ
     /*List<Login> getAll();*/

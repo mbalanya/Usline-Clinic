@@ -10,7 +10,17 @@ import java.util.List;
 public class Sql2oLoginDao implements LoginDao{
     private final Sql2o sql2o;
     public Sql2oLoginDao(Sql2o sql2o){ this.sql2o = sql2o; }
-    
+
+    @Override
+    public void logIn() {
+        String sql="SELECT usrname, password from userlogin";
+        try(Connection con=sql2o.open()){
+            con.createQuery(sql)
+                    .executeUpdate();
+        }
+    }
+
+
 
 //    @Override
 //    public void add(Login login) {

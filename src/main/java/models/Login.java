@@ -40,21 +40,21 @@ private int patid;
         this.password = password;
     }
 
-    public int getDocid() {
-        return docid;
-    }
-
-    public void setDocid(int docid) {
-        this.docid = docid;
-    }
-
-    public int getPatid() {
-        return patid;
-    }
-
-    public void setPatid(int patid) {
-        this.patid = patid;
-    }
+//    public int getDocid() {
+//        return docid;
+//    }
+//
+//    public void setDocid(int docid) {
+//        this.docid = docid;
+//    }
+//
+//    public int getPatid() {
+//        return patid;
+//    }
+//
+//    public void setPatid(int patid) {
+//        this.patid = patid;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -62,14 +62,12 @@ private int patid;
         if (o == null || getClass() != o.getClass()) return false;
         Login login = (Login) o;
         return id == login.id &&
-                docid == login.docid &&
-                patid == login.patid &&
                 username.equals(login.username) &&
                 password.equals(login.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, docid, patid);
+        return Objects.hash(id, username, password);
     }
 }
