@@ -19,6 +19,18 @@ public class Sql2oLoginDao implements LoginDao{
                     .executeUpdate();
         }
     }
+    public void add(Login login) {
+        String sql = "INSERT INTO userlogin(username,password, docid,patid) VALUES (:username,:password, :docid, :patid)";
+        try (Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql, true)
+                    .bind(login)
+                    .executeUpdate()
+                    .getKey();
+            login.setId(id);
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 
 
 

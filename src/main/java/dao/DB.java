@@ -13,7 +13,7 @@ public class DB {
 
         try {
             if (System.getenv("DATABASE_URL") == null) {
-                dbUri = new URI("postgres://localhost:5432/usline-_clinic");
+                dbUri = new URI("postgres://localhost:5432/usline_clinic");
             } else {
                 dbUri = new URI(System.getenv("DATABASE_URL"));
             }
