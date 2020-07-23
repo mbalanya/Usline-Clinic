@@ -12,8 +12,8 @@ public class Sql2oLoginDao implements LoginDao{
     public Sql2oLoginDao(Sql2o sql2o){ this.sql2o = sql2o; }
 
     @Override
-    public void logIn() {
-        String sql="SELECT usrname, password from userlogin";
+    public void logIn(String username, String password) {
+        String sql="SELECT * from userlogin WHERE  username = :username AND password =:password";
         try(Connection con=sql2o.open()){
             con.createQuery(sql)
                     .executeUpdate();

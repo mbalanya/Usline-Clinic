@@ -7,7 +7,7 @@ import java.util.List;
 public interface LoginDao {
 
     //CREATE
-    void logIn();
+    void logIn(String username, String paswword);
 
     //READ
     /*List<Login> getAll();*/
