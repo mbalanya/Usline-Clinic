@@ -3,9 +3,9 @@ package models;
 public class Doctor extends Users {
     private static final String DATABASE_TYPE= "doctor";
     private int id;
-    public Doctor(String email,String password,String firstName,String lastName,String gender,String phone){
+    public Doctor(String email,String firstName,String lastName,String gender,String phone){
     this.email=email;
-    this.password=password;
+//    this.password=password;
     this.firstName =firstName;
     this.lastName=lastName;
     this.gender=gender;
