@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" type="text/css">
+{% endblock styles%}
+<!-- Content block -->
+{% block content %}
+<div class="container text-center">
+    <img src="{{url_for('static', filename='images/white.jpg')}}" />
+    <div class="text-content">
+        <h1>Welcome to usline clinic, the best clinic in the whole country with affordable rates for inpatients and outpatients</h1>
+    </div>
+</div>
+{% endblock %}
