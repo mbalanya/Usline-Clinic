@@ -25,13 +25,13 @@ public class Sql2oLoginDao implements LoginDao{
         }
     }
 
-    /*@Override
+    @Override
     public List<Login> getAll() {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM login")
                     .executeAndFetch(Login.class);
         }
-    }*/
+    }
 
     @Override
     public Login findById(int id) {
@@ -54,7 +54,7 @@ public class Sql2oLoginDao implements LoginDao{
         }
     }
 
-    /*@Override
+    @Override
     public void clearAll() {
         String sql = "DELETE from login";
         try(Connection con = sql2o.open()){
@@ -63,5 +63,5 @@ public class Sql2oLoginDao implements LoginDao{
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
-    }*/
+    }
 }

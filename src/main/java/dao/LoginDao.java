@@ -10,12 +10,12 @@ public interface LoginDao {
     void add(Login login);
 
     //READ
-    /*List<Login> getAll();*/
+    List<Login> getAll();
     Login findById(int id);
 
     //UPDATE
 
     //DELETE
     void deleteById(int id);
-    /*void clearAll();*/
+    void clearAll();
 }

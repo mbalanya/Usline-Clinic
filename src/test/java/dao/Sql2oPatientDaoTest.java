@@ -30,60 +30,64 @@ public class Sql2oPatientDaoTest {
 
     //helpers
 
-    public Patient setupPatient (){
-        Patient patient = new Patient(1, "Tracks money", 5);
-        departmentDao.add(departments);
-        return departments;
+    public Patient setupPatient(){
+        return new Patient("Tom", "Jerry", "test@tomjerry.com", "Password", "male", "098765543");
+        /*patientDao.add(patient);
+        return patient;*/
     }
 
     @Test
-    public void addingUsersSetsId() throws Exception {
-        Departments testDepartments = setupDepartments();
-        assertNotEquals(0, testDepartments.getId());
+    public void addingPatientSetsId() throws Exception {
+        Patient testPatient = setupPatient();
+        int originalPatientId = testPatient.getId();
+        patientDao.add(testPatient);
+        assertNotEquals(originalPatientId, testPatient.getId());
     }
 
     @Test
-    public void addedDepartmentsAreReturnedFromGetAll() throws Exception {
-        Departments testDepartment = setupDepartments();
-        assertEquals(1, departmentDao.getAll().size());
+    public void addedPatientAreReturnedFromGetAll() throws Exception {
+        Patient testPatient = setupPatient();
+        assertEquals(1, patientDao.getAll().size());
     }
 
     @Test
-    public void noDepartmentsReturnsEmptyList() throws Exception {
-        assertEquals(0, departmentDao.getAll().size());
+    public void noPatientReturnsEmptyList() throws Exception {
+        assertEquals(0, patientDao.getAll().size());
     }
 
     @Test
-    public void findByIdReturnsCorrectDepartment() throws Exception {
-        Departments testDepartment = setupDepartments();
-        Departments otherDepartment = setupDepartments();
-        assertEquals(testDepartment, departmentDao.findById(testDepartment.getId()));
+    public void findByIdReturnsCorrectPatient() throws Exception {
+        Patient testPatient = setupPatient();
+        Patient otherPatient = setupPatient();
+        assertEquals(testPatient, patientDao.findById(testPatient.getId()));
     }
 
-    @Test
+    /*@Test
     public void updateCorrectlyUpdatesAllFields() throws Exception {
-        Departments testDepartment = setupDepartments();
-        departmentDao.update(testDepartment.getId(), "Networking", "Bring internet", 12);
-        Departments foundDepartment = departmentDao.findById(testDepartment.getId());
-        assertEquals("Networking", foundDepartment.getName());
-        assertEquals("Bring internet", foundDepartment.getDescription());
-        assertEquals(12, foundDepartment.getNumberOfEmployees());
-    }
+        Patient testPatient = setupPatient();
+        patientDao.update(testPatient.getId(), "Networking", "Bring internet", 12);
+        Patient foundPatient = patientDao.findById(testPatient.getId());
+        assertEquals("Networking", foundPatient.getName());
+        assertEquals("Bring internet", foundPatient.getDescription());
+        assertEquals(12, foundPatient.getNumberOfEmployees());
+    }*/
 
     @Test
-    public void deleteByIdDeletesCorrectDepartment() throws Exception {
-        Departments testDepartment = setupDepartments();
-        Departments otherDepartment = setupDepartments();
-        departmentDao.deleteById(testDepartment.getId());
-        assertEquals(1, departmentDao.getAll().size());
+    public void deleteByIdDeletesCorrectPatient() throws Exception {
+        Patient testPatient = setupPatient();
+        patientDao.add(testPatient);
+        Patient otherPatient = setupPatient();
+        patientDao.add(otherPatient);
+        patientDao.deleteById(testPatient.getId());
+        assertEquals(1, patientDao.getAll().size());
     }
 
     @Test
     public void clearAll() throws Exception {
-        Departments testDepartment = setupDepartments();
-        Departments otherDepartment = setupDepartments();
-        departmentDao.clearAll();
-        assertEquals(0, departmentDao.getAll().size());
+        Patient testPatient = setupPatient();
+        Patient otherPatient= setupPatient();
+        patientDao.clearAll();
+        assertEquals(0, patientDao.getAll().size());
     }
 
 }

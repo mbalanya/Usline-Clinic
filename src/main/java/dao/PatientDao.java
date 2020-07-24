@@ -13,7 +13,7 @@ public interface PatientDao {
     List<Patient> getAll();
     Patient findById(int id);
 
-    //UODATE
+    //UPDATE
 
     //DELETE
     void deleteById(int id);
