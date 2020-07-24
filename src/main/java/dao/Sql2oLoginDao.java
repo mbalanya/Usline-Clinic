@@ -17,6 +17,7 @@ public class Sql2oLoginDao implements LoginDao{
         try(Connection con=sql2o.open()){
             con.createQuery(sql)
                     .executeUpdate();
+
         }
     }
     public void add(Login login) {
