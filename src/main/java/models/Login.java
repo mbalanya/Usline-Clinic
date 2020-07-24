@@ -3,17 +3,17 @@ package models;
 import java.util.Objects;
 
 public class Login {
-private int id;
-private String username;
-private String password;
-private int docid;
-private int patid;
+    private int id;
+    private String userName;
+    private String password;
+    private int docId;
+    private int patId;
 
-    public Login(String username, String password, int docid, int patid) {
-        this.username = username;
+    public Login(String userName, String password, int docId, int patId) {
+        this.userName = userName;
         this.password = password;
-        this.docid = docid;
-        this.patid = patid;
+        this.docId = docId;
+        this.patId = patId;
     }
 
     public int getId() {
@@ -24,12 +24,12 @@ private int patid;
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -40,20 +40,20 @@ private int patid;
         this.password = password;
     }
 
-    public int getDocid() {
-        return docid;
+    public int getDocId() {
+        return docId;
     }
 
-    public void setDocid(int docid) {
-        this.docid = docid;
+    public void setDocId(int docId) {
+        this.docId = docId;
     }
 
-    public int getPatid() {
-        return patid;
+    public int getPatId() {
+        return patId;
     }
 
-    public void setPatid(int patid) {
-        this.patid = patid;
+    public void setPatId(int patId) {
+        this.patId = patId;
     }
 
     @Override
@@ -62,14 +62,14 @@ private int patid;
         if (o == null || getClass() != o.getClass()) return false;
         Login login = (Login) o;
         return id == login.id &&
-                docid == login.docid &&
-                patid == login.patid &&
-                username.equals(login.username) &&
+                docId == login.docId &&
+                patId == login.patId &&
+                userName.equals(login.userName) &&
                 password.equals(login.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, docid, patid);
+        return Objects.hash(id, userName, password, docId, patId);
     }
 }

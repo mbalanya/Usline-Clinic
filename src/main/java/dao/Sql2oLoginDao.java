@@ -13,7 +13,7 @@ public class Sql2oLoginDao implements LoginDao{
 
     @Override
     public void add(Login login) {
-        String sql = "INSERT INTO doctor (username, password, docid, patid) VALUES (:username, :password, :docid, :patid)";
+        String sql = "INSERT INTO doctor (userName, password, docId, patId) VALUES (:userName, :password, :docId, :patId)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(login)

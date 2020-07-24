@@ -13,7 +13,7 @@ public class Sql2oPatientDao implements PatientDao{
 
     @Override
     public void add(Patient patient) {
-        String sql = "INSERT INTO patient (firstname, lastname, email, password, gender, phone, role) VALUES (:firstname, :lastname, :email, :password, :gender, :phone, :role)";
+        String sql = "INSERT INTO patient (firstName, lastName, email, password, gender, phone, role) VALUES (:firstName, :lastName, :email, :password, :gender, :phone, :role)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(patient)

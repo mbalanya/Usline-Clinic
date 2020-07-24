@@ -3,6 +3,7 @@ package dao;
 import models.Doctor;
 import dao.Sql2oDoctorDao;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -13,20 +14,27 @@ import javax.print.Doc;
 import java.util.Arrays;
 
 public class Sql2oDoctorDaoTest {
-    private Connection conn;
-    private Sql2oDoctorDao doctorDao;
+    private static Connection conn;
+    private static Sql2oDoctorDao doctorDao;
 
     @Before
     public void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        String connectionString = "jdbc:postgresql://localhost:5432/usline_clinic_test";
+        Sql2o sql2o = new Sql2o(connectionString, "chalookoba", "Mbalanya7");
         doctorDao = new Sql2oDoctorDao(sql2o);
         conn = sql2o.open();
     }
 
     @After
     public void tearDown() throws Exception {
+        System.out.println("Clearing database");
+        doctorDao.clearAll();
+    }
+
+    @AfterClass
+    public static void shutDown() throws Exception{
         conn.close();
+        System.out.println("Connection closed");
     }
 
     //helpers
@@ -48,6 +56,7 @@ public class Sql2oDoctorDaoTest {
     @Test
     public void addedDoctorAreReturnedFromGetAll() throws Exception {
         Doctor testDoctor = setupDoctor();
+        doctorDao.add(testDoctor);
         assertEquals(1, doctorDao.getAll().size());
     }
 
@@ -59,7 +68,9 @@ public class Sql2oDoctorDaoTest {
     @Test
     public void findByIdReturnsCorrectDoctor() throws Exception {
         Doctor testDoctor= setupDoctor();
+        doctorDao.add(testDoctor);
         Doctor otherDoctor = setupDoctor();
+        doctorDao.add(otherDoctor);
         assertEquals(testDoctor, doctorDao.findById(testDoctor.getId()));
     }
 
@@ -86,7 +97,9 @@ public class Sql2oDoctorDaoTest {
     @Test
     public void clearAll() throws Exception {
         Doctor testDoctor = setupDoctor();
+        doctorDao.add(testDoctor);
         Doctor otherDoctor= setupDoctor();
+        doctorDao.add(otherDoctor);
         doctorDao.clearAll();
         assertEquals(0, doctorDao.getAll().size());
     }
